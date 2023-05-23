@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Create task</h1>
+<div mat-dialog-content>
+  <form class="input-wrapper" [formGroup]="taskForm">
+
+    <div *ngFor="let field of formFields" >
+      <ng-container *ngIf="field.formControl !== 'difficulty'">
+      <label >New {{field.title}}:</label>
+      <input type="text"  [formControlName]="field.formControl" name="file-name"/>
+      </ng-container>
+      <div class="difficulty">
+      <ng-container *ngIf="field.formControl === 'difficulty'">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ field.title }}</mat-label>
+          <mat-select [formControlName]="field.formControl">
+            <mat-option *ngFor="let difficulty of difficultyList" [value]="difficulty">
+              {{ difficulty }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ng-container>
+      </div>
+    </div>
+
+  </form>
+</div>
+<div mat-dialog-actions class="button-wrapper">
+  <span class="cancel-button" mat-dialog-close>Cancel</span>
+  <span class="save-button" (click)="onSubmit()">Save</span>
+</div>

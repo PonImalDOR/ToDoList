@@ -1,0 +1,23 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: #000000;
+  background-color: #B07289;
+
+}
+
+body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

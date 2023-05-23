@@ -1,0 +1,21 @@
+<div class="container">
+  <header class="header">
+    <h1 class="header-title">To Do List</h1>
+  </header>
+  <div class="app-task-list">
+    <h1 class="time-Week">This Week</h1>
+      <ng-container  *ngFor="let task of tasks$ | async; let i = index">
+          <div class="task" *ngIf="i < maxTasks">
+          <p>{{ task.name }}</p>
+          <p>{{ task.todo }}</p>
+          <p>{{ task.createdAt }}</p>
+            <div [ngClass]="task.difficulty" > <p>{{ task.difficulty }}</p></div>
+          <span class="delete-button" (click)="deleteTask(task)"></span>
+          <span class="edit-button" (click)="editTask(task)"></span>
+        </div>
+    </ng-container>
+    <footer class="footer">
+      <span class="add-button" (click)="addTaskArrayDialog()" [class.disabled]="length >= maxTasks">+</span>
+    </footer>
+  </div>
+</div>
